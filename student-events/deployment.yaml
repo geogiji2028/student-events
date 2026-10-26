@@ -1,0 +1,21 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-events
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: student-events
+  template:
+    metadata:
+      labels:
+        app: student-events
+    spec:
+      containers:
+        - name: student-events
+          image: student-events:v1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 80
